@@ -1,0 +1,27 @@
+{
+  "description": "Sample AHP pairwise comparison matrices for methodology validation",
+  "matrices": [
+    {
+      "id": "example_consistent_3x3",
+      "source": "Saaty (1980) illustrative example",
+      "criteria": ["Cost", "Quality", "Time"],
+      "matrix": [
+        [1, 3, 5],
+        [0.333, 1, 2],
+        [0.2, 0.5, 1]
+      ],
+      "expected_cr_approx": 0.004
+    },
+    {
+      "id": "example_inconsistent_3x3",
+      "source": "Constructed example — deliberately inconsistent",
+      "criteria": ["Cost", "Quality", "Time"],
+      "matrix": [
+        [1, 9, 2],
+        [0.111, 1, 9],
+        [0.5, 0.111, 1]
+      ],
+      "expected_cr_approx": 0.45
+    }
+  ]
+}
