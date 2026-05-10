@@ -33,3 +33,57 @@ research asks: can LLMs serve as a substitute or supplement to human experts?
 ---
 
 ## Repository Structure
+
+---
+
+## Setup
+
+**Requirements:** Python 3.10+
+
+```bash
+git clone https://github.com/rafi-khandoker/llm-ahp-mcda.git
+cd llm-ahp-mcda
+pip install -r requirements.txt
+```
+
+---
+
+## Key Concepts
+
+**Pairwise Comparison Matrix:** An n×n matrix where each entry a_ij represents 
+how much criterion i is preferred over criterion j, using Saaty's 1–9 scale.
+
+**Consistency Ratio (CR):** A measure of logical consistency in judgements.  
+CR = CI / RI, where CI is the Consistency Index and RI is the Random Index.  
+A CR < 0.1 indicates acceptable consistency.
+
+**Priority Vector:** The normalised principal eigenvector of the comparison 
+matrix, representing the relative weights of criteria.
+
+---
+
+## Usage
+
+```python
+from src.ahp import AHPMatrix
+
+# Define a pairwise comparison matrix
+matrix = [
+    [1,   3,   5],
+    [1/3, 1,   2],
+    [1/5, 1/2, 1]
+]
+
+ahp = AHPMatrix(matrix)
+print(f"Priority Vector: {ahp.priority_vector()}")
+print(f"Consistency Ratio: {ahp.consistency_ratio():.4f}")
+print(f"Is consistent (CR < 0.1): {ahp.is_consistent()}")
+```
+
+---
+
+## Citation
+
+If you use this code in your research, please cite:
+Khandoker, R. (2026). Investigating Large Language Models as Preference
+Elicitation Instruments in Multi-Criteria Decision Analysis.
